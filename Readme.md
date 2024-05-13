@@ -11,26 +11,45 @@ psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO 
 
 1. Install Go and Git on your target platform
 2. Register a DNS name and get a certificate from a well known authority
-3. Clone the repo to the target machine:â¨git clone [https://github.com/twocanoes/psso-server-go]
-4. Run go mod tidy to get the required packages:â¨go mod tidy
-5. Run the app. The defaults assume a folder writeable by the app /var/psso. The defaults are set for macOS and Linux and should be modified as outlined in the Modifying Defaults section.â¨ go run cmd/local/main.go
-6. Create a configuration profile and SSOE app in macOS to use this service. Please see https://twocanoes.com/sso for further information.â¨
-##Modifying Defaults
-6. Set up the environment variables for the service configuration:â¨_JWKSFilepath_ (/var/psso/jwks.json): Path to JSON file where the service keys will be created and stored.
+3. Clone the repo to the target machine:
 
-	_TLSPrivateKeyPath_ (/etc/letsencrypt/live/idp.twocanoes.com/privkey.pem): Path to TLS certificate in PEM format.
-	
-	_TLSCertificateChainPath_ (/etc/letsencrypt/live/idp.twocanoes.com/fullchain.pem): Path to TLS trust chain in PEM format.
-	
-	_DeviceFilePath_ (/var/psso/devices): Path to folder where device keys are stored. Each registered device will be in its own file in this folder.
-	
-	_NoncePath_: /var/psso/nonce): Path to folder where nonce are stored. Each nonce will be in its own file in this folder.
-	
-	_KeyPath_ (/var/psso/keys): Path to folder where device keys are stored. Each device key will be in its own file in this folder. This file is used to look up the device file when a key id is given.
-	
-	_EndpointNonce_ (/psso/nonce): HTTP endpoint where the client requests a nonce.
-	
-	_EndpointRegister_ (/psso/register): HTTP endpoint where client registers a new deviceâ¨_ EndpointToken_(/psso/token): HTTP token where client posts JWT tokensâ¨_ EndpointJWKS_(/psso/.well-known/jwks.json): HTTP endpoint for advertising the public key for the PSSO service.
+	`git clone [https://github.com/twocanoes/psso-server-go]`
+		
+4. Run go mod tidy to get the required packages:
+		
+	`go mod tidy`
+
+5. Run the app. The defaults assume a folder writeable by the app /var/psso. The defaults are set for macOS and Linux and should be modified as outlined in the Modifying Defaults section.
+
+	go run cmd/local/main.go
+		
+
+	6. Create a configuration profile and SSOE app in macOS to use this service. Please see https://twocanoes.com/sso for further information.
+
+
+## Modifying Defaults
+
+Set up the environment variables for the service configuration:
+
+_JWKSFilepath_ (/var/psso/jwks.json): Path to JSON file where the service keys will be created and stored.
+
+_TLSPrivateKeyPath_ (/etc/letsencrypt/live/idp.twocanoes.com/privkey.pem): Path to TLS certificate in PEM format.
+
+_TLSCertificateChainPath_ (/etc/letsencrypt/live/idp.twocanoes.com/fullchain.pem): Path to TLS trust chain in PEM format.
+
+_DeviceFilePath_ (/var/psso/devices): Path to folder where device keys are stored. Each registered device will be in its own file in this folder.
+
+_NoncePath_: /var/psso/nonce): Path to folder where nonce are stored. Each nonce will be in its own file in this folder.
+
+_KeyPath_ (/var/psso/keys): Path to folder where device keys are stored. Each device key will be in its own file in this folder. This file is used to look up the device file when a key id is given.
+
+_EndpointNonce_ (/psso/nonce): HTTP endpoint where the client requests a nonce.
+
+_EndpointRegister_ (/psso/register): HTTP endpoint where client registers a new device
+
+_EndpointToken_ (/psso/token): HTTP token where client posts JWT tokens
+
+_EndpointJWKS_ (/psso/.well-known/jwks.json): HTTP endpoint for advertising the public key for the PSSO service.
 
 
 ## Thanks
