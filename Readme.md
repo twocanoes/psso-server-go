@@ -13,7 +13,7 @@ psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO 
 2. Register a DNS name and get a certificate from a well known authority
 3. Clone the repo to the target machine:
 
-	`git clone [https://github.com/twocanoes/psso-server-go]`
+	`git clone [https://github.com/twocanoes/psso-server-go`
 		
 4. Run go mod tidy to get the required packages:
 		
