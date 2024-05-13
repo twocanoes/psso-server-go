@@ -17,14 +17,21 @@ psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO 
 6. Create a configuration profile and SSOE app in macOS to use this service. Please see https://twocanoes.com/sso for further information.â¨
 ##Modifying Defaults
 6. Set up the environment variables for the service configuration:â¨_JWKSFilepath_ (/var/psso/jwks.json): Path to JSON file where the service keys will be created and stored.
+
 	_TLSPrivateKeyPath_ (/etc/letsencrypt/live/idp.twocanoes.com/privkey.pem): Path to TLS certificate in PEM format.
+	
 	_TLSCertificateChainPath_ (/etc/letsencrypt/live/idp.twocanoes.com/fullchain.pem): Path to TLS trust chain in PEM format.
+	
 	_DeviceFilePath_ (/var/psso/devices): Path to folder where device keys are stored. Each registered device will be in its own file in this folder.
+	
 	_NoncePath_: /var/psso/nonce): Path to folder where nonce are stored. Each nonce will be in its own file in this folder.
+	
 	_KeyPath_ (/var/psso/keys): Path to folder where device keys are stored. Each device key will be in its own file in this folder. This file is used to look up the device file when a key id is given.
-	_ EndpointNonce_(/psso/nonce): HTTP endpoint where the client requests a nonce.
-	_ EndpointRegister_ (/psso/register): HTTP endpoint where client registers a new deviceâ¨_ EndpointToken_(/psso/token): HTTP token where client posts JWT tokensâ¨_ EndpointJWKS_(/psso/.well-known/jwks.json): HTTP endpoint for advertising the public key for the PSSO service.
-     
+	
+	_EndpointNonce_ (/psso/nonce): HTTP endpoint where the client requests a nonce.
+	
+	_EndpointRegister_ (/psso/register): HTTP endpoint where client registers a new deviceâ¨_ EndpointToken_(/psso/token): HTTP token where client posts JWT tokensâ¨_ EndpointJWKS_(/psso/.well-known/jwks.json): HTTP endpoint for advertising the public key for the PSSO service.
+
 
 ## Thanks
 Thanks to Joel Rennich for his deep dive into figuring out the details of PSSO and providing guidance on how this all works.
