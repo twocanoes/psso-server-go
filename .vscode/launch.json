@@ -11,19 +11,19 @@
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}/cmd/local/main.go",
-            "env": {
-                "JWKSFilepath": "c:\\psso\\jwks.json",
-                "TLSPrivateKeyPath": "c:\\certs\\privkey.pem",
-                "TLSCertificateChainPath": "c:\\certs\\fullchain.pem",
-                "DeviceFilePath": "c:\\psso",
-                "NoncePath": "c:\\psso",
-                "KeyPath": "c:\\psso",
+            // "env": {
+            //     "JWKSFilepath": "c:\\psso\\jwks.json",
+            //     "TLSPrivateKeyPath": "c:\\certs\\privkey.pem",
+            //     "TLSCertificateChainPath": "c:\\certs\\fullchain.pem",
+            //     "DeviceFilePath": "c:\\psso",
+            //     "NoncePath": "c:\\psso",
+            //     "KeyPath": "c:\\psso",
 
-                "EndpointNonce": "/psso/nonce",
-                "EndpointRegister": "/psso/register",
-                "EndpointToken": "/psso/token",
-                "EndpointJWKS":"/psso/.well-known/jwks.json"
-              }
+            //     "EndpointNonce": "/psso/nonce",
+            //     "EndpointRegister": "/psso/register",
+            //     "EndpointToken": "/psso/token",
+            //     "EndpointJWKS":"/psso/.well-known/jwks.json"
+            //   }
         }
     ]
 }
