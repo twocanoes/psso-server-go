@@ -23,8 +23,7 @@ psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO 
 
 	go run cmd/local/main.go
 		
-
-	6. Create a configuration profile and SSOE app in macOS to use this service. Please see https://twocanoes.com/sso for further information.
+6. Create a configuration profile and SSOE app in macOS to use this service. Please see https://twocanoes.com/sso for further information.
 
 
 ## Modifying Defaults
