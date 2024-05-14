@@ -39,8 +39,6 @@ _PSSO_JWKSFILEPATH_ (/var/psso/jwks.json): Path to JSON file where the service k
 
 _PSSO_TLSPRIVATEKEYPATH_ (/etc/letsencrypt/live/idp.twocanoes.com/privkey.pem): Path to TLS certificate in PEM format.
 
-_TLSCertificateChainPath_ (/etc/letsencrypt/live/idp.twocanoes.com/fullchain.pem): Path to TLS trust chain in PEM format.
-
 _PSSO_TLSCERTIFICATECHAINPATH_ (/var/psso/devices): Path to folder where device keys are stored. Each registered device will be in its own file in this folder.
 
 _PSSO_NONCEPATH_: /var/psso/nonce): Path to folder where nonce are stored. Each nonce will be in its own file in this folder.
