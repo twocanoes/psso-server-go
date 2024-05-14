@@ -28,10 +28,6 @@ psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO 
 
 
 ## Modifying Defaults
-PSSO_BASEURL", filepath.FromSlash("https://idp.twocanoes.com/psso"))
-PSSO_PORT", filepath.FromSlash("6443"))
-PSSO_ADDRESS", ":6443")
-
 
 Set up the environment variables for the service configuration:
 
