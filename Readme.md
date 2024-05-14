@@ -28,28 +28,36 @@ psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO 
 
 
 ## Modifying Defaults
+PSSO_BASEURL", filepath.FromSlash("https://idp.twocanoes.com/psso"))
+PSSO_PORT", filepath.FromSlash("6443"))
+PSSO_ADDRESS", ":6443")
+
 
 Set up the environment variables for the service configuration:
 
-_JWKSFilepath_ (/var/psso/jwks.json): Path to JSON file where the service keys will be created and stored.
+_PSSO_BASEURL_ (https://idp.twocanoes.com/psso): BaseURL for service. Used for Iss in JWT.
 
-_TLSPrivateKeyPath_ (/etc/letsencrypt/live/idp.twocanoes.com/privkey.pem): Path to TLS certificate in PEM format.
+_PSSO_ADDRESS_ (:6443): Network address and port to listen on.
+
+_PSSO_JWKSFILEPATH_ (/var/psso/jwks.json): Path to JSON file where the service keys will be created and stored.
+
+_PSSO_TLSPRIVATEKEYPATH_ (/etc/letsencrypt/live/idp.twocanoes.com/privkey.pem): Path to TLS certificate in PEM format.
 
 _TLSCertificateChainPath_ (/etc/letsencrypt/live/idp.twocanoes.com/fullchain.pem): Path to TLS trust chain in PEM format.
 
-_DeviceFilePath_ (/var/psso/devices): Path to folder where device keys are stored. Each registered device will be in its own file in this folder.
+_PSSO_TLSCERTIFICATECHAINPATH_ (/var/psso/devices): Path to folder where device keys are stored. Each registered device will be in its own file in this folder.
 
-_NoncePath_: /var/psso/nonce): Path to folder where nonce are stored. Each nonce will be in its own file in this folder.
+_PSSO_NONCEPATH_: /var/psso/nonce): Path to folder where nonce are stored. Each nonce will be in its own file in this folder.
 
-_KeyPath_ (/var/psso/keys): Path to folder where device keys are stored. Each device key will be in its own file in this folder. This file is used to look up the device file when a key id is given.
+_PSSO_KEYPATH_ (/var/psso/keys): Path to folder where device keys are stored. Each device key will be in its own file in this folder. This file is used to look up the device file when a key id is given.
 
-_EndpointNonce_ (/psso/nonce): HTTP endpoint where the client requests a nonce.
+_PSSO_ENDPOINTNONCE_ (/psso/nonce): HTTP endpoint where the client requests a nonce.
 
-_EndpointRegister_ (/psso/register): HTTP endpoint where client registers a new device
+_PSSO_ENDPOINTREGISTER_ (/psso/register): HTTP endpoint where client registers a new device
 
-_EndpointToken_ (/psso/token): HTTP token where client posts JWT tokens
+_PSSO_ENDPOINTTOKEN_ (/psso/token): HTTP token where client posts JWT tokens
 
-_EndpointJWKS_ (/psso/.well-known/jwks.json): HTTP endpoint for advertising the public key for the PSSO service.
+_PSSO_ENDPOINTJWKS_ (/psso/.well-known/jwks.json): HTTP endpoint for advertising the public key for the PSSO service.
 
 
 ## Thanks

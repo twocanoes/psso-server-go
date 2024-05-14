@@ -12,21 +12,20 @@ var AASAApps = [...]string{
 }
 
 var (
-	BaseURL                 = "https://idp.twocanoes.com/psso"
-	Port                    = "6443"
-	Address                 = ":6443"
-	TLSPrivateKeyPath       = getEnv("TLSPrivateKeyPath", filepath.FromSlash("/etc/letsencrypt/live/idp.twocanoes.com/privkey.pem"))
-	TLSCertificateChainPath = getEnv("TLSCertificateChainPath", filepath.FromSlash("/etc/letsencrypt/live/idp.twocanoes.com/fullchain.pem"))
-	JWKSFilepath            = getEnv("JWKSFilepath", filepath.FromSlash("/var/psso/jwks.json"))
-	DeviceFilePath          = getEnv("DeviceFilePath", filepath.FromSlash("/var/psso/devices"))
-	NoncePath               = getEnv("NoncePath", filepath.FromSlash("/var/psso/nonce"))
-	KeyPath                 = getEnv("KeyPath", filepath.FromSlash("/var/psso/keys"))
+	BaseURL                 = getEnv("PSSO_BASEURL", filepath.FromSlash("https://idp.twocanoes.com/psso"))
+	Address                 = getEnv("PSSO_ADDRESS", ":6443")
+	TLSPrivateKeyPath       = getEnv("PSSO_TLSPRIVATEKEYPATH", filepath.FromSlash("/etc/letsencrypt/live/idp.twocanoes.com/privkey.pem"))
+	TLSCertificateChainPath = getEnv("PSSO_TLSCERTIFICATECHAINPATH", filepath.FromSlash("/etc/letsencrypt/live/idp.twocanoes.com/fullchain.pem"))
+	JWKSFilepath            = getEnv("PSSO_JWKSFILEPATH", filepath.FromSlash("/var/psso/jwks.json"))
+	DeviceFilePath          = getEnv("PSSO_DEVICEFILEPATH", filepath.FromSlash("/var/psso/devices"))
+	NoncePath               = getEnv("PSSO_NONCEPATH", filepath.FromSlash("/var/psso/nonce"))
+	KeyPath                 = getEnv("PSSO_KEYPATH", filepath.FromSlash("/var/psso/keys"))
 
-	EndpointJWKS           = getEnv("EndpointJWKS", "/.well-known/jwks.json")
-	EndpointAppleSiteAssoc = getEnv("EndpointAppleSiteAssoc", "/.well-known/apple-app-site-association")
-	EndpointNonce          = getEnv("EndpointNonce", "/nonce")
-	EndpointRegister       = getEnv("EndpointRegister", "/register")
-	EndpointToken          = getEnv("EndpointToken", "/token")
+	EndpointJWKS           = getEnv("PSSO_ENDPOINTJWKS", "/.well-known/jwks.json")
+	EndpointAppleSiteAssoc = getEnv("PSSO_ENDPOINTAPPLESITEASSOC", "/.well-known/apple-app-site-association")
+	EndpointNonce          = getEnv("PSSO_ENDPOINTNONCE", "/nonce")
+	EndpointRegister       = getEnv("PSSO_ENDPOINTREGISTER", "/register")
+	EndpointToken          = getEnv("PSSO_ENDPOINTTOKEN", "/token")
 )
 
 func getEnv(key, fallback string) string {
