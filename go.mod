@@ -1,8 +1,7 @@
 module github.com/twocanoes/psso-server
 
-go 1.22.1
+go 1.20
 
-toolchain go1.22.3
 
 require (
 	github.com/go-jose/go-jose/v3 v3.0.3
