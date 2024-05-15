@@ -174,7 +174,7 @@ func Token(apiHost string) http.HandlerFunc {
 			claimPassword := userClaims.Password
 
 			// compare with what is passed in
-			if claimUsername != "jappleseed@twocanoes.com" || claimPassword != "twocanoes7" {
+			if claimUsername != "jappleseed@twocanoes.com" || claimPassword != "twocanoes" {
 
 				fmt.Println("invalid username or password")
 				return
