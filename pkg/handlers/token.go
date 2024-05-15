@@ -174,14 +174,31 @@ func Token(apiHost string) http.HandlerFunc {
 			claimPassword := userClaims.Password
 
 			// compare with what is passed in
-			if claimUsername != "jappleseed@twocanoes.com" || claimPassword != "twocanoes" {
+			if claimUsername == "jappleseed@twocanoes.com" && claimPassword == "twocanoes" {
 
-				fmt.Println("invalid username or password")
-				return
-			}
+				jweString, err = psso.CreateIDTokenResponse(apiHost, *userClaims, "johnny", "Johnny Appleseed", []string{"admin", "net-admin", "software-install"}, "jappleseed@twocanoes.com", "jappleseed@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
+				if err != nil {
+					fmt.Println("invalid jwe")
+					return
+				}
 
-			jweString, err = psso.CreateIDTokenResponse(apiHost, *userClaims, "johnny", "Johnny Appleseed", []string{"admin"}, "jappleseed@twocanoes.com", "jappleseed@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
-			if err != nil {
+			} else if claimUsername == "liz@twocanoes.com" && claimPassword == "twocanoes" {
+
+				jweString, err = psso.CreateIDTokenResponse(apiHost, *userClaims, "Liz", "Liz Appleseed", []string{"software-install", "psso-standard-users"}, "liz@twocanoes.com", "liz@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
+				if err != nil {
+					fmt.Println("invalid jwe")
+					return
+				}
+
+			} else if claimUsername == "nate@twocanoes.com" && claimPassword == "twocanoes" {
+
+				jweString, err = psso.CreateIDTokenResponse(apiHost, *userClaims, "Nate", "Nate Appleseed", []string{"software-install", "psso-standard-users"}, "nate@twocanoes.com", "nate@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
+				if err != nil {
+					fmt.Println("invalid jwe")
+					return
+				}
+
+			} else {
 				fmt.Println("invalid username or password")
 				return
 			}
