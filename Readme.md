@@ -30,15 +30,19 @@ psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO 
 
 Set up the environment variables for the service configuration:
 
-_PSSO_BASEURL_ (https://idp.twocanoes.com/psso): BaseURL for service. Used for Iss in JWT.
+_PSSO_ISSUER_ (example.com): Issuer. Used for Iss in JWT.
+
+_PSSO_AUDIENCE_ (psso): Audience. Used for Aud in JWT.
 
 _PSSO_ADDRESS_ (:6443): Network address and port to listen on.
 
 _PSSO_JWKSFILEPATH_ (/var/psso/jwks.json): Path to JSON file where the service keys will be created and stored.
 
-_PSSO_TLSPRIVATEKEYPATH_ (/etc/letsencrypt/live/idp.twocanoes.com/privkey.pem): Path to TLS certificate in PEM format.
+_PSSO_TLSPRIVATEKEYPATH_ (/etc/psso/privkey.pem): Path to TLS certificate in PEM format.
 
-_PSSO_TLSCERTIFICATECHAINPATH_ (/var/psso/devices): Path to folder where device keys are stored. Each registered device will be in its own file in this folder.
+_PSSO_TLSCERTIFICATECHAINPATH_ (/etc/psso/fullchain.pem): Path to folder where device keys are stored. Each registered device will be in its own file in this folder.
+
+_PSSO_DEVICEFILEPATH_: /var/psso/devices): Path to folder where device keys
 
 _PSSO_NONCEPATH_: /var/psso/nonce): Path to folder where nonce are stored. Each nonce will be in its own file in this folder.
 

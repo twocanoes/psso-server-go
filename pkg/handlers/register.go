@@ -23,7 +23,7 @@ type PSSORegistration struct {
 	DeviceEncryptionKey string `json:"DeviceEncryptionKey"`
 	SignKeyID           string `json:"SignKeyID"`
 	EncKeyID            string `json:"EncKeyID"`
-	User                string `json:"user,omitempty"`
+	// User                string `json:"user,omitempty"`
 }
 
 func Register() http.HandlerFunc {
