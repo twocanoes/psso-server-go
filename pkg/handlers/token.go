@@ -176,7 +176,7 @@ func Token() http.HandlerFunc {
 			// compare with what is passed in
 			if claimUsername == "jappleseed@twocanoes.com" && claimPassword == "twocanoes" {
 
-				jweString, err = psso.CreateIDTokenResponse(constants.Issuer, constants.Audience, *userClaims, "johnny", "Johnny Appleseed", []string{"admin", "net-admin", "software-install"}, "jappleseed@twocanoes.com", "jappleseed@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
+				jweString, err = psso.CreateIDTokenResponse(constants.Issuer, *userClaims, "johnny", "Johnny Appleseed", []string{"admin", "net-admin", "software-install"}, "jappleseed@twocanoes.com", "jappleseed@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
 				if err != nil {
 					fmt.Println("invalid jwe")
 					return
@@ -184,7 +184,7 @@ func Token() http.HandlerFunc {
 
 			} else if claimUsername == "liz@twocanoes.com" && claimPassword == "twocanoes" {
 
-				jweString, err = psso.CreateIDTokenResponse(constants.Issuer, constants.Audience, *userClaims, "Liz", "Liz Appleseed", []string{"software-install", "psso-standard-users"}, "liz@twocanoes.com", "liz@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
+				jweString, err = psso.CreateIDTokenResponse(constants.Issuer, *userClaims, "Liz", "Liz Appleseed", []string{"software-install", "psso-standard-users"}, "liz@twocanoes.com", "liz@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
 				if err != nil {
 					fmt.Println("invalid jwe")
 					return
@@ -192,7 +192,7 @@ func Token() http.HandlerFunc {
 
 			} else if claimUsername == "nate@twocanoes.com" && claimPassword == "twocanoes" {
 
-				jweString, err = psso.CreateIDTokenResponse(constants.Issuer, constants.Audience, *userClaims, "Nate", "Nate Appleseed", []string{"software-install", "psso-standard-users"}, "nate@twocanoes.com", "nate@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
+				jweString, err = psso.CreateIDTokenResponse(constants.Issuer, *userClaims, "Nate", "Nate Appleseed", []string{"software-install", "psso-standard-users"}, "nate@twocanoes.com", "nate@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
 				if err != nil {
 					fmt.Println("invalid jwe")
 					return
