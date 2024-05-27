@@ -22,11 +22,11 @@ var (
 	NoncePath               = getEnv("PSSO_NONCEPATH", filepath.FromSlash("/var/psso/nonce"))
 	KeyPath                 = getEnv("PSSO_KEYPATH", filepath.FromSlash("/var/psso/keys"))
 
-	EndpointJWKS           = getEnv("PSSO_ENDPOINTJWKS", "/psso/.well-known/jwks.json")
+	EndpointJWKS           = getEnv("PSSO_ENDPOINTJWKS", "/.well-known/jwks.json")
 	EndpointAppleSiteAssoc = getEnv("PSSO_ENDPOINTAPPLESITEASSOC", "/.well-known/apple-app-site-association")
-	EndpointNonce          = getEnv("PSSO_ENDPOINTNONCE", "/psso/nonce")
-	EndpointRegister       = getEnv("PSSO_ENDPOINTREGISTER", "/psso/register")
-	EndpointToken          = getEnv("PSSO_ENDPOINTTOKEN", "/psso/token")
+	EndpointNonce          = getEnv("PSSO_ENDPOINTNONCE", "/nonce")
+	EndpointRegister       = getEnv("PSSO_ENDPOINTREGISTER", "/register")
+	EndpointToken          = getEnv("PSSO_ENDPOINTTOKEN", "/token")
 )
 
 func getEnv(key, fallback string) string {
