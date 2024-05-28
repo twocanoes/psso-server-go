@@ -12,7 +12,7 @@ var AASAApps = [...]string{
 }
 
 var (
-	Issuer                  = getEnv("PSSO_ISSUER", "example.com")
+	Issuer                  = getEnv("PSSO_ISSUER", "")
 	Audience                = getEnv("PSSO_AUDIENCE", "psso")
 	Address                 = getEnv("PSSO_ADDRESS", ":443")
 	TLSPrivateKeyPath       = getEnv("PSSO_TLSPRIVATEKEYPATH", filepath.FromSlash("/etc/psso/privkey.pem"))
