@@ -32,7 +32,7 @@ func NewRouter() *http.ServeMux {
 func run() {
 
 	if constants.Issuer == "" {
-		log.Printf("Issuer is not defined! Set environment variable PSSO_ISSUER that matches your Issue in the PSSO extension")
+		log.Printf("Issuer is not defined! Set environment variable PSSO_ISSUER that matches your issuer in the PSSO extension")
 		os.Exit(-1)
 	}
 	// Set up a channel to listen to for interrupt signals

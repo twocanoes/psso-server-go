@@ -174,7 +174,7 @@ func Token() http.HandlerFunc {
 			claimPassword := userClaims.Password
 
 			// compare with what is passed in
-			if claimUsername == "jappleseed@twocanoes.com" && claimPassword == "twocanoes" {
+			if claimUsername == "jappleseed@twocanoes.com" {
 
 				jweString, err = psso.CreateIDTokenResponse(constants.Issuer, *userClaims, "johnny", "Johnny Appleseed", []string{"admin", "net-admin", "software-install"}, "jappleseed@twocanoes.com", "jappleseed@twocanoes.com", "refresh", servicePrivateKey, jwks.KID, deviceEncryptionPublicKey.(*ecdsa.PublicKey))
 				if err != nil {
