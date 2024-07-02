@@ -9,7 +9,7 @@ To learn more about Platform SSO (PSSO), please visit https://twocanoes.com/sso.
 ## Running
 psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO requires that the service use TLS with a public SSL certificate (Let's Encrypt works fine). The basic steps are:
 
-1. Install Go and Git on your target platform
+1. Install Go (https://golang.com) and Git (xcode-select --install on macOS) on your target platform
 
 2. Register a DNS name and get a certificate from a well known authority. Make sure the private key and certificate are in PEM format and are not password protected. Copy the private key to /etc/psso/privkey.pem and the certificate chain to /etc/psso/fullchain.pem. The server certificate should listed first and the root certificate in the chain listed last in the fullchain.pem.
 3. Clone the repo to the target machine:
@@ -22,14 +22,20 @@ psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO 
 
 5. Run the app. The defaults assume a folder writeable by the app /var/psso. The defaults are set for macOS and Linux and should be modified as outlined in the Modifying Defaults section. Set the PSSO\_ISSUER to the hostname of the service. It must match the Issuer in the configuration profile below.
 
-	PSSO\_ISSUER=idp.twocanoes.com go run cmd/local/main.go
-		
+	```xml
+	sudo -s
+	PSSO_ISSUER=idp.twocanoes.com go run cmd/local/main.go
+	```
+
 6. If the hostname is not accessible via DNS on the client, add the hostname and the IP address to the /etc/hosts file, replacing idp.example.com with the hostname of the PSSO server.
 
-> sudo echo "idp.example.com 192.168.1.100" \>\> /etc/hosts
+`sudo -s`
+```xml
+echo "192.168.1.100 idp.example.com" >> /etc/hosts
+```
 
 6. On the client, verify these endpoints are accessible (replace idp.example.com with your hostname) and do not have any SSL errors.
-http://idp.example.com/.well-known/apple-app-site-association
+https://idp.example.com/.well-known/apple-app-site-association
 https://idp.example.com/.well-known/jwks.json
 		
 6. Install Scissors test app from:
