@@ -40,7 +40,7 @@ https://idp.example.com/.well-known/jwks.json
 		
 6. Install Scissors test app from:
 
-> https://github.com/twocanoes/sso/releases/
+> https://github.com/twocanoes/psso-server-go/releases
 		
 6. Create a configuration profile and SSOE app in macOS to use this service. Replace the following key/values:
 
