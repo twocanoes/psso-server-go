@@ -24,7 +24,7 @@ psso-server-go should be able to be deployed on macOS, Windows, and Linux. PSSO 
 
 	```xml
 	sudo -s
-	PSSO_ISSUER=idp.twocanoes.com go run cmd/local/main.go
+	PSSO_ISSUER=idp.example.com go run cmd/local/main.go
 	```
 
 6. If the hostname is not accessible via DNS on the client, add the hostname and the IP address to the /etc/hosts file, replacing idp.example.com with the hostname of the PSSO server.
@@ -47,7 +47,8 @@ https://idp.example.com/.well-known/jwks.json
 * AccountDisplayName: name of the Identity Provider that will show in dialogs. For example, "My Identity Provider".
 * BaseURL: The URL of the service. For example, https://idp.example.com.
 * Issuer: the hostname. It must match the issuer when running. For example, idp.example.com.
-* ```xml
+ 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">~
@@ -138,7 +139,7 @@ https://idp.example.com/.well-known/jwks.json
 
 Set up the environment variables for the service configuration:
 
-_PSSO\_ISSUER_ Issuer (required, no default value. Usually URL to IdP like https://idp.twocanoes.com). Used for Iss in JWT. Must match the Issuer key in the config profile for the sample app "Scissors" or issuer in ASAuthorizationProviderExtensionLoginConfiguration as shown below:
+_PSSO\_ISSUER_ Issuer (required, no default value. Usually URL to IdP like https://idp.example.com). Used for Iss in JWT. Must match the Issuer key in the config profile for the sample app "Scissors" or issuer in ASAuthorizationProviderExtensionLoginConfiguration as shown below:
 
 > let config = ASAuthorizationProviderExtensionLoginConfiguration(clientID:clientID , issuer: *issuer*, tokenEndpointURL: tokenEndpoint, jwksEndpointURL: jwksEndpoint, audience: audience)
 
